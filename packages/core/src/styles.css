@@ -276,9 +276,9 @@
   background-image: linear-gradient(var(--nf-sun), var(--nf-sun));
   background-repeat: no-repeat;
   background-size: 100% 0.96em;
-  background-position: 0 0.26em;
+  background-position: 0 0.18em;
   padding: 0 0.12em 0 0.06em;
-  margin: 0 -0.12em 0 -0.06em;
+  margin: 0 0 0 -0.06em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   font-style: normal;
