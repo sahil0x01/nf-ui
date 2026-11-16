@@ -10,6 +10,7 @@ import { Link, navigate, usePath } from "./router";
 import { guides } from "./nav";
 import { componentDocs } from "./pages/component-docs";
 import { slugify } from "./parts";
+import { NullfuseMark } from "./logo";
 import { cn } from "@/lib/cn";
 
 /* ── theme ── */
@@ -163,7 +164,7 @@ export function Header({ onSearch }: { onSearch: () => void }) {
           </SheetContent>
         </Sheet>
         <Link href="/" className="flex items-center gap-2 font-sans text-lg font-semibold tracking-tight">
-          <PixelIcon name="heart" size={2} className="text-danger" /> nullfuse
+          <NullfuseMark size={2} className="text-ink" /> nullfuse
         </Link>
         <nav className="ml-4 flex items-center gap-5">
           {navLink("/docs/introduction", "Docs", (p) => p.startsWith("/docs") && !p.startsWith("/docs/components"))}
