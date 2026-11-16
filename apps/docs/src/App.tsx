@@ -5,6 +5,7 @@ import { Heading, Text } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
 import { PixelIcon } from "@/components/ui/pixel-icon";
 import { Label } from "@/components/ui/typography";
+import { NullfuseMark } from "./logo";
 import { Header, DocsShell, Search } from "./layout";
 import { Link, usePath } from "./router";
 import { Home } from "./pages/home";
@@ -62,7 +63,7 @@ export function App() {
           <footer className="border-t-2 border-ink">
             <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-8">
               <span className="flex items-center gap-2 font-sans font-semibold">
-                <PixelIcon name="heart" size={2} className="text-danger" /> nullfuse
+                <NullfuseMark size={2} className="text-ink" /> nullfuse
               </span>
               <Label>built to be copied · v0.1</Label>
             </div>
