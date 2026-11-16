@@ -4,7 +4,7 @@ Design system for all Nullfuse products: tokens, typography, motion, components.
 Pixel-art components with readable type, in two themes: **white** (default) and **black** (`class="dark"` on `<html>`). Notched pixel borders, bevels, sprite icons, frame-by-frame motion. shadcn-style distribution: components are **copied** into products.
 
 ```
-packages/core    nullfuse-core  → styles.css (tokens, type scale, textures, keyframes) + motion.ts
+packages/core    @nullfuse/core  → styles.css (tokens, type scale, textures, keyframes) + motion.ts
 packages/cli     nullfuse        → `init`, `add <name…>`, `list`
 registry/        source of truth for every component (ui/*.tsx) + registry.json manifest
 scripts/         build-registry.mjs → apps/docs/public/r/*.json (what the CLI fetches)
@@ -26,7 +26,7 @@ pnpm typecheck
 npx nullfuse init
 npx nullfuse add button card tabs
 ```
-Then in your CSS: `@import "tailwindcss"; @import "nullfuse-core/styles.css";`
+Then in your CSS: `@import "tailwindcss"; @import "@nullfuse/core/styles.css";`
 Set `@/*` → `./src/*` in tsconfig. Toggle the black theme with `class="dark"` on `<html>`.
 
 ## Docs site
@@ -58,7 +58,7 @@ Use `pnpm run deploy` (not `pnpm deploy`, which is a different built-in pnpm com
 
 0. Add the docs entry to `apps/docs/src/pages/component-docs.tsx`.
 
-1. Create `registry/ui/<name>.tsx`. Import helpers as `@/lib/cn`, siblings as `@/components/ui/<x>`, motion as `nullfuse-core/motion`.
+1. Create `registry/ui/<name>.tsx`. Import helpers as `@/lib/cn`, siblings as `@/components/ui/<x>`, motion as `@nullfuse/core/motion`.
 2. Add an entry to `registry/registry.json` (list npm `dependencies`).
 3. Show it in `apps/docs/src/App.tsx`, run `pnpm build:registry && pnpm typecheck`.
 
@@ -85,4 +85,4 @@ Base UI state attributes used for styling: `data-checked`, `data-active` (tabs),
 
 ## Not done yet
 
-Date range selection, multi-select combobox (chips), dropdown with checkbox/radio items, data table (sorting), tree view; publishing `nullfuse-core`/`nullfuse` to npm and hosting `/r` (CLI defaults to `https://ui.nullfuse.com/r`, override with `NULLFUSE_REGISTRY`).
+Date range selection, multi-select combobox (chips), dropdown with checkbox/radio items, data table (sorting), tree view; publishing `@nullfuse/core`/`nullfuse` to npm and hosting `/r` (CLI defaults to `https://ui.nullfuse.com/r`, override with `NULLFUSE_REGISTRY`).

@@ -1,5 +1,5 @@
 {
-  "name": "nullfuse-core",
+  "name": "@nullfuse/core",
   "version": "0.1.0",
   "description": "Nullfuse design tokens, typography, and motion.",
   "type": "module",

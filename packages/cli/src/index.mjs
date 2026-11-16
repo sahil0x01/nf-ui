@@ -61,11 +61,11 @@ async function init() {
     join(config.aliases.lib, "cn.ts"),
     `import { clsx, type ClassValue } from "clsx";\nimport { twMerge } from "tailwind-merge";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n`,
   );
-  const deps = ["nullfuse-core", "clsx", "tailwind-merge", "motion", "@fontsource-variable/geist", "@fontsource-variable/geist-mono"];
+  const deps = ["@nullfuse/core", "clsx", "tailwind-merge", "motion", "@fontsource-variable/geist", "@fontsource-variable/geist-mono"];
   if (!flags.has("--no-install")) log(`→ installing ${deps.join(" ")}`);
   if (!flags.has("--no-install")) execSync(`${detectPm()} ${deps.join(" ")}`, { stdio: "inherit", cwd });
   log(`\n\x1b[32m✓\x1b[0m wrote ${CONFIG} and ${config.aliases.lib}/cn.ts`);
-  log(`\nAdd to ${config.css}:\n\n  @import "tailwindcss";\n  @import "nullfuse-core/styles.css";\n  @import "@fontsource-variable/geist";\n  @import "@fontsource-variable/geist-mono";\n`);
+  log(`\nAdd to ${config.css}:\n\n  @import "tailwindcss";\n  @import "@nullfuse/core/styles.css";\n  @import "@fontsource-variable/geist";\n  @import "@fontsource-variable/geist-mono";\n`);
   log(`Then: nullfuse add button`);
 }
 

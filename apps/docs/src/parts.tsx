@@ -177,7 +177,7 @@ export function Install({ slug }: { slug: string }) {
         <Steps>
           {(deps.length > 0 || true) && (
             <Step title="Install the dependencies">
-              <CodeBlock language="bash" filename="terminal" code={`npm install ${["nullfuse-core", "clsx", "tailwind-merge", ...deps].join(" ")}`} />
+              <CodeBlock language="bash" filename="terminal" code={`npm install ${["@nullfuse/core", "clsx", "tailwind-merge", ...deps].join(" ")}`} />
             </Step>
           )}
           {other.length > 0 && (
