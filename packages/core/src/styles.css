@@ -1,11 +1,11 @@
 /* ──────────────────────────────────────────────────────────────
-   @nullfuse/core — tokens · typography · pixel · motion
+   nullfuse-core — tokens · typography · pixel · motion
    Pixel-art components, readable type, black & white themes:
    notched pixel borders, bevels, sprite icons, stepped motion.
    Light-first. Dark theme = add class "dark" to <html>.
    Usage (app css):
      @import "tailwindcss";
-     @import "@nullfuse/core/styles.css";
+     @import "nullfuse-core/styles.css";
    ────────────────────────────────────────────────────────────── */
 
 @custom-variant dark (&:is(.dark, .dark *));

@@ -70,7 +70,7 @@ function Introduction() {
       <H2>What is in the box</H2>
       <UL>
         <li><strong className="text-foreground">{registry.items.length} components</strong> built on Base UI primitives, from <Link href="/docs/components/button" className="underline underline-offset-4">Button</Link> to a <Link href="/docs/components/command" className="underline underline-offset-4">⌘K command palette</Link>.</li>
-        <li><strong className="text-foreground">@nullfuse/core</strong>: design tokens, the type scale, pixel utilities and the motion helpers.</li>
+        <li><strong className="text-foreground">nullfuse-core</strong>: design tokens, the type scale, pixel utilities and the motion helpers.</li>
         <li><strong className="text-foreground">nullfuse CLI</strong>: <Ic>init</Ic> and <Ic>add</Ic> commands that copy components into your project.</li>
       </UL>
 
@@ -83,7 +83,7 @@ function Introduction() {
       <Accordion className="my-5">
         <AccordionItem value="1">
           <AccordionTrigger>Why copy the components instead of installing a package?</AccordionTrigger>
-          <AccordionPanel>Products evolve at different speeds. Owning the source means you can adapt a component without waiting on, or fighting, a shared package. Tokens still live in <code className="nf-code">@nullfuse/core</code>, so the look stays consistent.</AccordionPanel>
+          <AccordionPanel>Products evolve at different speeds. Owning the source means you can adapt a component without waiting on, or fighting, a shared package. Tokens still live in <code className="nf-code">nullfuse-core</code>, so the look stays consistent.</AccordionPanel>
         </AccordionItem>
         <AccordionItem value="2">
           <AccordionTrigger>How do I get updates?</AccordionTrigger>
@@ -129,13 +129,13 @@ function Installation() {
         </Step>
 
         <Step title="Run init">
-          <P className="!mt-0">Creates <Ic>nullfuse.json</Ic>, the <Ic>cn</Ic> helper, and installs <Ic>@nullfuse/core</Ic> and the fonts.</P>
+          <P className="!mt-0">Creates <Ic>nullfuse.json</Ic>, the <Ic>cn</Ic> helper, and installs <Ic>nullfuse-core</Ic> and the fonts.</P>
           <CodeBlock language="bash" filename="terminal" code="npx nullfuse init" />
         </Step>
 
         <Step title="Import the styles">
           <P className="!mt-0">Add the core stylesheet and fonts to your global CSS:</P>
-          <CodeBlock language="css" filename="src/index.css" code={`@import "tailwindcss";\n@import "@nullfuse/core/styles.css";\n@import "@fontsource-variable/geist";\n@import "@fontsource-variable/geist-mono";`} />
+          <CodeBlock language="css" filename="src/index.css" code={`@import "tailwindcss";\n@import "nullfuse-core/styles.css";\n@import "@fontsource-variable/geist";\n@import "@fontsource-variable/geist-mono";`} />
         </Step>
 
         <Step title="Configure the path alias">
@@ -170,7 +170,7 @@ function Cli() {
       <H2>init</H2>
       <P>Use the <Ic>init</Ic> command to initialize a project.</P>
       <CodeBlock language="bash" filename="terminal" code="npx nullfuse init" />
-      <P>It writes <Ic>nullfuse.json</Ic>, creates <Ic>src/lib/cn.ts</Ic>, installs <Ic>@nullfuse/core</Ic>, <Ic>clsx</Ic>, <Ic>tailwind-merge</Ic>, <Ic>motion</Ic> and the fonts, then prints the CSS imports to add.</P>
+      <P>It writes <Ic>nullfuse.json</Ic>, creates <Ic>src/lib/cn.ts</Ic>, installs <Ic>nullfuse-core</Ic>, <Ic>clsx</Ic>, <Ic>tailwind-merge</Ic>, <Ic>motion</Ic> and the fonts, then prints the CSS imports to add.</P>
       <PropsTable props={[{ name: "--no-install", type: "flag", description: "Write files only; skip the package install." }]} />
 
       <H2>add</H2>
@@ -240,7 +240,7 @@ function Theming() {
 
       <H2>Customizing</H2>
       <P>Override any variable after the core import. Set it on <Ic>:root</Ic> for the white theme and <Ic>.dark</Ic> for the black theme.</P>
-      <CodeBlock language="css" filename="src/index.css" code={`@import "tailwindcss";\n@import "@nullfuse/core/styles.css";\n\n:root {\n  --nf-sun: oklch(0.85 0.17 80); /* warmer highlight */\n}\n.dark {\n  --nf-sun: oklch(0.82 0.15 80);\n}`} />
+      <CodeBlock language="css" filename="src/index.css" code={`@import "tailwindcss";\n@import "nullfuse-core/styles.css";\n\n:root {\n  --nf-sun: oklch(0.85 0.17 80); /* warmer highlight */\n}\n.dark {\n  --nf-sun: oklch(0.82 0.15 80);\n}`} />
 
       <H2>Shape and pixels</H2>
       <P>One variable controls the pixel grid: <Ic>--nf-px</Ic> (2px by default). Borders, bevels and shadows all derive from it. Raise it for a chunkier look.</P>
@@ -431,9 +431,9 @@ function Motion() {
         { name: "nf-stagger", type: "class", description: "Parent: children animate in; set style=\"--i: n\" on each." },
       ]} />
 
-      <H2>@nullfuse/core/motion</H2>
+      <H2>nullfuse-core/motion</H2>
       <P>Helpers for the <Ic>motion</Ic> library:</P>
-      <CodeBlock language="tsx" filename="example.tsx" code={`import { popIn, fadeUp, stagger, ease, spring, steps } from "@nullfuse/core/motion";\n\n<motion.ul variants={stagger()} initial="hidden" animate="visible">\n  <motion.li variants={popIn} />   {/* 5-frame pop */}\n  <motion.li variants={fadeUp} />  {/* 5-frame rise */}\n</motion.ul>\n\n// custom frame count\n<motion.div animate={{ x: 100 }} transition={{ ease: steps(8) }} />`} />
+      <CodeBlock language="tsx" filename="example.tsx" code={`import { popIn, fadeUp, stagger, ease, spring, steps } from "nullfuse-core/motion";\n\n<motion.ul variants={stagger()} initial="hidden" animate="visible">\n  <motion.li variants={popIn} />   {/* 5-frame pop */}\n  <motion.li variants={fadeUp} />  {/* 5-frame rise */}\n</motion.ul>\n\n// custom frame count\n<motion.div animate={{ x: 100 }} transition={{ ease: steps(8) }} />`} />
       <PropsTable props={[
         { name: "duration", type: "{ instant, fast, base, slow, slower }", description: "Seconds: 0.08, 0.12, 0.24, 0.4, 0.7." },
         { name: "ease", type: "{ frames3, frames5, frames8, linear }", description: "Stepped easings." },
@@ -456,7 +456,7 @@ function Changelog() {
       <UL>
         <li><strong className="text-foreground">{registry.items.length} components</strong> on Base UI primitives, in white and black themes.</li>
         <li>Pixel primitives: <Ic>nf-pixel</Ic>, <Ic>nf-pixel-flat</Ic>, <Ic>nf-pixel-inset</Ic>, <Ic>nf-pressable</Ic>, dithering textures.</li>
-        <li>Frame-by-frame motion: stepped easings, <Ic>@nullfuse/core/motion</Ic>, CSS animation utilities.</li>
+        <li>Frame-by-frame motion: stepped easings, <Ic>nullfuse-core/motion</Ic>, CSS animation utilities.</li>
         <li>Sprite icons as ASCII grids with <Ic>PixelIcon</Ic>.</li>
         <li>Command palette, calendar, date picker, combobox, toast, sheet, and a dependency-free syntax highlighter.</li>
         <li><Ic>nullfuse</Ic> CLI: <Ic>init</Ic>, <Ic>add</Ic>, <Ic>list</Ic>.</li>

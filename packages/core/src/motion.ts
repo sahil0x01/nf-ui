@@ -1,5 +1,5 @@
 /**
- * @nullfuse/core/motion — shared motion language for the `motion` library.
+ * nullfuse-core/motion — shared motion language for the `motion` library.
  *
  * Feel: frame-by-frame, like sprite animation.
  *  - Use `steps(n)` easing so movement happens in discrete frames, never smooth curves.

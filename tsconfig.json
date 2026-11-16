@@ -14,8 +14,8 @@
     "paths": {
       "@/components/ui/*": ["registry/ui/*"],
       "@/lib/*": ["registry/lib/*"],
-      "@nullfuse/core/motion": ["packages/core/src/motion.ts"],
-      "@nullfuse/core": ["packages/core/src/index.ts"]
+      "nullfuse-core/motion": ["packages/core/src/motion.ts"],
+      "nullfuse-core": ["packages/core/src/index.ts"]
     }
   },
   "include": ["registry", "packages/core/src", "apps/docs/src"]

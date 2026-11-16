@@ -22,7 +22,7 @@ export default defineConfig({
     alias: {
       "@/components/ui": r("../../registry/ui"),
       "@/lib": r("../../registry/lib"),
-      "@nullfuse/core/motion": r("../../packages/core/src/motion.ts"),
+      "nullfuse-core/motion": r("../../packages/core/src/motion.ts"),
     },
     dedupe: ["react", "react-dom", "motion"],
   },
