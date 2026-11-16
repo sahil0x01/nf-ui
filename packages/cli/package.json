@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "description": "CLI for adding Nullfuse components to a project.",
   "type": "module",
-  "bin": { "nullfuse": "./src/index.mjs" },
+  "bin": { "nullfuse": "src/index.mjs" },
   "files": ["src"]
 }
