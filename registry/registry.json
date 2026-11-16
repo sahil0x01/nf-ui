@@ -1,0 +1,385 @@
+{
+  "$schema": "./registry.schema.json",
+  "name": "nullfuse",
+  "homepage": "https://ui.nullfuse.com",
+  "items": [
+    {
+      "name": "button",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "files": [
+        "ui/button.tsx"
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "ui",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        "ui/badge.tsx"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "ui",
+      "files": [
+        "ui/card.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "input",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/input.tsx"
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "ui",
+      "files": [
+        "ui/kbd.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "switch",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/switch.tsx"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/checkbox.tsx"
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/tabs.tsx"
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/dialog.tsx"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/tooltip.tsx"
+      ]
+    },
+    {
+      "name": "typography",
+      "type": "ui",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        "ui/typography.tsx"
+      ]
+    },
+    {
+      "name": "typewriter",
+      "type": "motion",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        "ui/typewriter.tsx"
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "ui",
+      "files": [
+        "ui/code-block.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "reveal",
+      "type": "motion",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        "ui/reveal.tsx"
+      ]
+    },
+    {
+      "name": "window",
+      "type": "ui",
+      "files": [
+        "ui/window.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "marquee",
+      "type": "motion",
+      "files": [
+        "ui/marquee.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "pixel-icon",
+      "type": "ui",
+      "files": [
+        "ui/pixel-icon.tsx"
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "ui",
+      "files": [
+        "ui/progress.tsx"
+      ]
+    },
+    {
+      "name": "hop",
+      "type": "motion",
+      "files": [
+        "ui/hop.tsx"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "ui",
+      "dependencies": [],
+      "files": [
+        "ui/label.tsx"
+      ]
+    },
+    {
+      "name": "field",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/field.tsx"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "ui",
+      "dependencies": [],
+      "files": [
+        "ui/textarea.tsx"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/select.tsx"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/radio-group.tsx"
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/slider.tsx"
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/popover.tsx"
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/menu.tsx"
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "files": [
+        "ui/sheet.tsx"
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "files": [
+        "ui/toast.tsx"
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/accordion.tsx"
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "ui",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        "ui/alert.tsx"
+      ]
+    },
+    {
+      "name": "table",
+      "type": "ui",
+      "dependencies": [],
+      "files": [
+        "ui/table.tsx"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "ui",
+      "dependencies": [],
+      "files": [
+        "ui/skeleton.tsx"
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/separator.tsx"
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/avatar.tsx"
+      ]
+    },
+    {
+      "name": "command",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/command.tsx"
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        "ui/combobox.tsx"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "ui",
+      "dependencies": [],
+      "files": [
+        "ui/breadcrumb.tsx"
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "ui",
+      "dependencies": [],
+      "files": [
+        "ui/pagination.tsx"
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "ui",
+      "dependencies": [],
+      "files": [
+        "ui/calendar.tsx"
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "ui",
+      "dependencies": [],
+      "files": [
+        "ui/date-picker.tsx"
+      ]
+    }
+  ]
+}

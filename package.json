@@ -1,0 +1,25 @@
+{
+  "name": "nullfuse-system",
+  "private": true,
+  "packageManager": "pnpm@12.21.0",
+  "scripts": {
+    "dev": "pnpm --filter docs dev",
+    "build:registry": "node scripts/build-registry.mjs",
+    "build": "pnpm build:registry && pnpm --filter docs build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "deploy": "pnpm --filter docs run deploy"
+  },
+  "devDependencies": {
+    "@base-ui/react": "^1.9.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "motion": "^12.43.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0",
+    "typescript": "^5.9.0"
+  }
+}

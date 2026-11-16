@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nullfuse-ui",
+  "compatibility_date": "2026-11-13",
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "./dist",
+    // Deep links like /docs/components/button fall back to index.html (SPA).
+    "not_found_handling": "single-page-application"
+  },
+  // Serves the docs and the registry (/r/*) on this hostname. The nullfuse.com
+  // zone must be on the Cloudflare account you deploy to.
+  "routes": [{ "pattern": "ui.nullfuse.com", "custom_domain": true }]
+}

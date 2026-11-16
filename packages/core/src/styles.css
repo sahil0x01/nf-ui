@@ -1,0 +1,443 @@
+/* ──────────────────────────────────────────────────────────────
+   @nullfuse/core — tokens · typography · pixel · motion
+   Pixel-art components, readable type, black & white themes:
+   notched pixel borders, bevels, sprite icons, stepped motion.
+   Light-first. Dark theme = add class "dark" to <html>.
+   Usage (app css):
+     @import "tailwindcss";
+     @import "@nullfuse/core/styles.css";
+   ────────────────────────────────────────────────────────────── */
+
+@custom-variant dark (&:is(.dark, .dark *));
+
+/* ── 1. Tokens (light default) ──────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  --nf-bg: oklch(1 0 0); /* white */
+  --nf-surface: oklch(0.985 0 0);
+  --nf-surface-2: oklch(0.958 0 0);
+  --nf-border: oklch(0.88 0 0);
+  --nf-ink: oklch(0.14 0 0); /* black */
+
+  --nf-fg: oklch(0.14 0 0);
+  --nf-fg-muted: oklch(0.45 0 0);
+  --nf-fg-subtle: oklch(0.58 0 0);
+
+  /* primary = ink. Buttons are black on white, white on black. */
+  --nf-accent: oklch(0.14 0 0);
+  --nf-accent-fg: oklch(1 0 0);
+  --nf-accent-dim: oklch(0.14 0 0 / 0.08);
+
+  /* restrained status colors, used sparingly */
+  --nf-sun: oklch(0.89 0.15 95); /* highlight / warning */
+  --nf-sun-fg: oklch(0.14 0 0);
+  --nf-teal: oklch(0.5 0.15 255); /* info / link blue */
+  --nf-teal-fg: oklch(1 0 0);
+  --nf-sage: oklch(0.68 0.16 150); /* success */
+  --nf-sage-fg: oklch(0.14 0 0);
+  --nf-danger: oklch(0.55 0.21 27);
+  --nf-danger-fg: oklch(1 0 0);
+
+  --nf-ring: oklch(0.14 0 0);
+  --nf-shadow: oklch(0.14 0 0);
+
+  /* syntax highlighting (tuned for the light surface) */
+  --nf-code-keyword: oklch(0.5 0.19 300);
+  --nf-code-string: oklch(0.5 0.13 150);
+  --nf-code-number: oklch(0.55 0.16 50);
+  --nf-code-function: oklch(0.5 0.15 255);
+  --nf-code-type: oklch(0.5 0.1 200);
+  --nf-code-comment: oklch(0.6 0 0);
+  --nf-code-punct: oklch(0.5 0 0);
+
+  /* pixel bevel overlays: lit from top-left */
+  --nf-bevel-light: oklch(1 0 0 / 0.55);
+  --nf-bevel-dark: oklch(0 0 0 / 0.1);
+
+  /* one "pixel" — change globally for chunkier / finer art */
+  --nf-px: 2px;
+
+  /* motion */
+  --nf-dur-instant: 80ms;
+  --nf-dur-fast: 120ms;
+  --nf-dur-base: 240ms;
+  --nf-dur-slow: 400ms;
+  --nf-dur-slower: 700ms;
+}
+
+.dark {
+  color-scheme: dark;
+  --nf-bg: oklch(0.1 0 0); /* black */
+  --nf-surface: oklch(0.155 0 0);
+  --nf-surface-2: oklch(0.2 0 0);
+  --nf-border: oklch(0.3 0 0);
+  --nf-ink: oklch(0.97 0 0); /* white */
+
+  --nf-fg: oklch(0.97 0 0);
+  --nf-fg-muted: oklch(0.72 0 0);
+  --nf-fg-subtle: oklch(0.56 0 0);
+
+  --nf-accent: oklch(0.97 0 0);
+  --nf-accent-fg: oklch(0.1 0 0);
+  --nf-accent-dim: oklch(0.97 0 0 / 0.1);
+
+  --nf-sun: oklch(0.87 0.15 95);
+  --nf-sun-fg: oklch(0.14 0 0);
+  --nf-teal: oklch(0.7 0.14 255);
+  --nf-teal-fg: oklch(0.14 0 0);
+  --nf-sage: oklch(0.75 0.16 150);
+  --nf-sage-fg: oklch(0.14 0 0);
+  --nf-danger: oklch(0.68 0.2 27);
+  --nf-danger-fg: oklch(0.14 0 0);
+
+  --nf-ring: oklch(0.97 0 0);
+  --nf-shadow: oklch(0.42 0 0);
+
+  --nf-code-keyword: oklch(0.78 0.13 300);
+  --nf-code-string: oklch(0.8 0.14 150);
+  --nf-code-number: oklch(0.8 0.13 60);
+  --nf-code-function: oklch(0.78 0.12 255);
+  --nf-code-type: oklch(0.8 0.09 200);
+  --nf-code-comment: oklch(0.55 0 0);
+  --nf-code-punct: oklch(0.7 0 0);
+  --nf-bevel-light: oklch(1 0 0 / 0.14);
+  --nf-bevel-dark: oklch(0 0 0 / 0.35);
+}
+
+/* ── 2. Tailwind theme mapping ──────────────────────────────── */
+@theme inline {
+  --color-background: var(--nf-bg);
+  --color-surface: var(--nf-surface);
+  --color-surface-2: var(--nf-surface-2);
+  --color-border: var(--nf-border);
+  --color-ink: var(--nf-ink);
+  --color-foreground: var(--nf-fg);
+  --color-muted: var(--nf-fg-muted);
+  --color-subtle: var(--nf-fg-subtle);
+  --color-accent: var(--nf-accent);
+  --color-accent-foreground: var(--nf-accent-fg);
+  --color-accent-dim: var(--nf-accent-dim);
+  --color-sun: var(--nf-sun);
+  --color-sun-foreground: var(--nf-sun-fg);
+  --color-teal: var(--nf-teal);
+  --color-teal-foreground: var(--nf-teal-fg);
+  --color-sage: var(--nf-sage);
+  --color-sage-foreground: var(--nf-sage-fg);
+  --color-danger: var(--nf-danger);
+  --color-danger-foreground: var(--nf-danger-fg);
+  --color-ring: var(--nf-ring);
+  --color-code-keyword: var(--nf-code-keyword);
+  --color-code-string: var(--nf-code-string);
+  --color-code-number: var(--nf-code-number);
+  --color-code-function: var(--nf-code-function);
+  --color-code-type: var(--nf-code-type);
+  --color-code-comment: var(--nf-code-comment);
+  --color-code-punct: var(--nf-code-punct);
+
+  /* pixel art has no curves */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+
+  --font-display: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Geist Mono Variable", "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --animate-blink: nf-blink 1s steps(1, end) infinite;
+  --animate-fade-up: nf-fade-up var(--nf-dur-slow) steps(5, end) both;
+  --animate-fade-in: nf-fade-in var(--nf-dur-base) steps(4, end) both;
+  --animate-pop-in: nf-pop-in var(--nf-dur-slow) steps(5, end) both;
+  --animate-hop: nf-hop 480ms steps(1, end) 1;
+  --animate-skeleton: nf-skeleton 1.2s steps(1, end) infinite;
+  --animate-bob: nf-bob 1.2s steps(1, end) infinite;
+  --animate-marquee: nf-marquee 24s steps(160, end) infinite;
+}
+
+/* ── 3. Base ────────────────────────────────────────────────── */
+@layer base {
+  * {
+    border-color: var(--nf-ink);
+  }
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--nf-bg);
+    color: var(--nf-fg);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+  img, svg, canvas {
+    image-rendering: pixelated;
+  }
+  ::selection {
+    background: var(--nf-sun);
+    color: var(--nf-sun-fg);
+  }
+  :focus-visible {
+    outline: 2px dashed var(--nf-ring);
+    outline-offset: 3px;
+  }
+}
+
+/* ── 4. Typography ──────────────────────────────────────────── *
+ * Readable type: Geist for everything, Geist Mono for labels/code.
+ * Pixel styling lives in the components, not the letterforms.   */
+@utility nf-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.2rem + 5.4vw, 5rem);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  font-weight: 650;
+}
+@utility nf-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  font-weight: 650;
+}
+@utility nf-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
+  line-height: 1.15;
+  letter-spacing: -0.028em;
+  font-weight: 650;
+}
+@utility nf-h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+@utility nf-h4 {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  font-weight: 600;
+}
+@utility nf-lead {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--nf-fg-muted);
+}
+@utility nf-body {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+@utility nf-small {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--nf-fg-muted);
+}
+@utility nf-label {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--nf-fg-subtle);
+}
+@utility nf-code {
+  font-family: var(--font-label);
+  font-size: 0.8em;
+  padding: 0.15em 0.45em;
+  background: var(--nf-surface-2);
+  box-shadow: 0 0 0 var(--nf-px) var(--nf-ink);
+}
+/* Marker highlight, fitted to the type.
+ * Geist's inline box is 1.3em tall with the baseline 1.0em from the top and a
+ * 0.71em cap height. The band runs 0.26em → 1.22em: from just above the cap line
+ * to just below the descenders, so it covers the whole word. Adjacent lines'
+ * glyphs never reach into it (their content boxes only overlap in empty
+ * ascender/descender space). Sized in em, it scales with any font size. */
+@utility nf-mark {
+  background-image: linear-gradient(var(--nf-sun), var(--nf-sun));
+  background-repeat: no-repeat;
+  background-size: 100% 0.96em;
+  background-position: 0 0.26em;
+  padding: 0 0.1em;
+  margin: 0 -0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  color: var(--nf-sun-fg);
+}
+/* Emphasized word inside a (tight-tracked) heading. Extra right padding makes up
+ * for the heading's negative letter-spacing so the band ends with the last glyph. */
+@utility nf-swash {
+  background-image: linear-gradient(var(--nf-sun), var(--nf-sun));
+  background-repeat: no-repeat;
+  background-size: 100% 0.96em;
+  background-position: 0 0.26em;
+  padding: 0 0.12em 0 0.06em;
+  margin: 0 -0.12em 0 -0.06em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  font-style: normal;
+  color: var(--nf-sun-fg);
+}
+
+/* ── 5. Pixel primitives ────────────────────────────────────── *
+ * .nf-pixel      notched 1-pixel ink border + top-left lit bevel.
+ *                Colors the element via its own background.
+ * Vars: --nf-drop (hard drop shadow size, default 0),
+ *       --nf-bevel-a / -b (swap to invert the bevel when pressed). */
+@utility nf-pixel {
+  --nf-bevel-a: var(--nf-bevel-dark); /* bottom-right */
+  --nf-bevel-b: var(--nf-bevel-light); /* top-left */
+  border: 0;
+  border-radius: 0;
+  box-shadow:
+    inset calc(var(--nf-px) * -1) calc(var(--nf-px) * -1) 0 0 var(--nf-bevel-a),
+    inset var(--nf-px) var(--nf-px) 0 0 var(--nf-bevel-b),
+    calc(var(--nf-px) * -1) 0 0 0 var(--nf-ink),
+    var(--nf-px) 0 0 0 var(--nf-ink),
+    0 calc(var(--nf-px) * -1) 0 0 var(--nf-ink),
+    0 var(--nf-px) 0 0 var(--nf-ink),
+    var(--nf-drop, 0px) calc(var(--nf-px) + var(--nf-drop, 0px)) 0 0 var(--nf-shadow);
+}
+/* same notch but flat (no bevel) — inputs, wells */
+@utility nf-pixel-flat {
+  border: 0;
+  border-radius: 0;
+  box-shadow:
+    calc(var(--nf-px) * -1) 0 0 0 var(--nf-ink),
+    var(--nf-px) 0 0 0 var(--nf-ink),
+    0 calc(var(--nf-px) * -1) 0 0 var(--nf-ink),
+    0 var(--nf-px) 0 0 var(--nf-ink);
+}
+/* sunken well */
+@utility nf-pixel-inset {
+  border: 0;
+  box-shadow:
+    inset var(--nf-px) var(--nf-px) 0 0 var(--nf-bevel-dark),
+    calc(var(--nf-px) * -1) 0 0 0 var(--nf-ink),
+    var(--nf-px) 0 0 0 var(--nf-ink),
+    0 calc(var(--nf-px) * -1) 0 0 var(--nf-ink),
+    0 var(--nf-px) 0 0 var(--nf-ink);
+}
+/* Pressable: raised → sinks and inverts bevel. Pixel-stepped. */
+@utility nf-pressable {
+  --nf-drop: var(--nf-px);
+  &:hover:not(:disabled) {
+    filter: brightness(1.06);
+  }
+  &:active:not(:disabled) {
+    --nf-bevel-a: var(--nf-bevel-light);
+    --nf-bevel-b: var(--nf-bevel-dark);
+    --nf-drop: 0px;
+    transform: translateY(var(--nf-px));
+    filter: none;
+  }
+}
+
+/* textures */
+@utility bg-dither {
+  /* 50% checker dither, 2px cells */
+  background-image:
+    linear-gradient(45deg, var(--nf-ink) 25%, transparent 25%, transparent 75%, var(--nf-ink) 75%),
+    linear-gradient(45deg, var(--nf-ink) 25%, transparent 25%, transparent 75%, var(--nf-ink) 75%);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+}
+@utility bg-pixel-grid {
+  background-image:
+    linear-gradient(to right, var(--nf-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--nf-border) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+/* hard-banded retro stripes (accent / sun / teal) */
+@utility bg-stripes {
+  background-image: linear-gradient(
+    to bottom,
+    var(--nf-accent) 0 33.33%,
+    var(--nf-sun) 33.33% 66.66%,
+    var(--nf-teal) 66.66% 100%
+  );
+}
+
+/* ── 6. Motion ──────────────────────────────────────────────── *
+ * Principles: frame-by-frame. Everything animates in discrete
+ * steps (steps()) like sprite frames — no smooth easing curves.
+ * Press = sink 1 pixel-unit. Enter = 4–5 frame pop. Idle = bob.
+ * Feedback ≤ 120ms · panels ≤ 240ms · entrances ≤ 400ms.       */
+@keyframes nf-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes nf-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes nf-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes nf-pop-in {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes nf-hop {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(calc(var(--nf-px) * -3)); }
+  50% { transform: translateY(calc(var(--nf-px) * -4)); }
+  75% { transform: translateY(calc(var(--nf-px) * -1)); }
+  100% { transform: translateY(0); }
+}
+@keyframes nf-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(var(--nf-px) * -1)); }
+}
+@keyframes nf-skeleton {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+@keyframes nf-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* block text cursor */
+@utility nf-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  vertical-align: text-bottom;
+  background: var(--nf-accent);
+  animation: var(--animate-blink);
+}
+
+/* Enter/exit for Base UI popups; 3-frame pop */
+@utility nf-pop {
+  transition:
+    opacity var(--nf-dur-fast) steps(3, end),
+    transform var(--nf-dur-fast) steps(3, end);
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+/* Stagger children: parent .nf-stagger, children set style="--i: n" */
+.nf-stagger > * {
+  animation: var(--animate-pop-in);
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

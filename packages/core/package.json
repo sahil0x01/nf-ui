@@ -1,0 +1,14 @@
+{
+  "name": "@nullfuse/core",
+  "version": "0.1.0",
+  "description": "Nullfuse design tokens, typography, and motion.",
+  "type": "module",
+  "sideEffects": ["*.css"],
+  "exports": {
+    ".": { "types": "./src/index.ts", "default": "./src/index.ts" },
+    "./motion": { "types": "./src/motion.ts", "default": "./src/motion.ts" },
+    "./styles.css": "./src/styles.css"
+  },
+  "files": ["src"],
+  "peerDependencies": { "motion": ">=12", "react": ">=19", "tailwindcss": ">=4" }
+}
